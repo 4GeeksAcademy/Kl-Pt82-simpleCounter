@@ -1,0 +1,172 @@
+/* Miami neon background */
+body {
+  background: linear-gradient(135deg, #0f0521 0%, #26004d 100%);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ff44cc;
+  flex-direction: column;
+}
+
+.app {
+  background: #10001f;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  box-shadow:
+    0 0 25px #ff44cc,
+    0 0 60px #00ccff inset,
+    inset 0 0 40px #ff44cc,
+    inset 0 0 100px #00ccff;
+  display: inline-block;
+  user-select: none;
+  min-width: 360px;
+}
+
+.controls {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+input[type="number"] {
+  background: #22003a;
+  border: none;
+  border-radius: 8px;
+  color: #ff44cc;
+  width: 90px;
+  font-size: 1rem;
+  padding: 0.3rem;
+  text-align: center;
+  margin: 0 0.3rem;
+  box-shadow:
+    inset 0 0 8px #ff44cc,
+    0 0 6px #00ccff;
+  transition: box-shadow 0.3s;
+}
+input[type="number"]:focus {
+  outline: none;
+  box-shadow:
+    inset 0 0 15px #ff44cc,
+    0 0 15px #00ccff;
+  color: #fff;
+}
+
+button {
+  background: linear-gradient(90deg, #ff44cc, #00ccff);
+  border: none;
+  border-radius: 12px;
+  color: #10001f;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+  margin: 0 0.4rem;
+  cursor: pointer;
+  box-shadow:
+    0 0 10px #ff44cc,
+    0 0 20px #00ccff;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff66dd, #33eeff);
+  color: #fff;
+  box-shadow:
+    0 0 20px #ff66dd,
+    0 0 40px #33eeff;
+}
+
+/* Container for each digit */
+.digit {
+  position: relative;
+  width: 40px;
+  height: 70px;
+  background: #1b0046;
+  border-radius: 10px;
+  box-shadow:
+    inset 0 0 15px #33004d,
+    0 0 10px #ff44cc,
+    0 0 20px #00ccff;
+  margin: 0 3px;
+}
+
+/* The 7 segments */
+.segment {
+  position: absolute;
+  background: #33004d;
+  border-radius: 4px;
+  transition: background 0.3s;
+  box-shadow: 0 0 6px #ff44cc;
+}
+.segment.on {
+  background: #ff44cc;
+  box-shadow:
+    0 0 25px #ff44cc,
+    0 0 60px #00ccff,
+    0 0 120px #ff44cc;
+}
+
+/* Horizontal segments */
+.segment.a, .segment.d, .segment.g {
+  width: 28px;
+  height: 8px;
+  left: 6px;
+}
+.segment.a { top: 4px; }
+.segment.g { top: 31px; }
+.segment.d { bottom: 4px; }
+
+/* Vertical segments */
+.segment.b, .segment.c, .segment.e, .segment.f {
+  width: 8px;
+  height: 28px;
+}
+.segment.b { top: 6px; right: 4px; }
+.segment.c { bottom: 6px; right: 4px; }
+.segment.e { bottom: 6px; left: 4px; }
+.segment.f { top: 6px; left: 4px; }
+
+/* Colon container */
+.colon {
+  position: relative;
+  width: 15px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 4px;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #ff44cc;
+  border-radius: 50%;
+  box-shadow:
+    0 0 15px #ff44cc,
+    0 0 40px #00ccff;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.2; }
+}
+
+/* Clock icon + digits wrapper */
+.display-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ff44cc;
+  text-shadow:
+    0 0 10px #ff44cc,
+    0 0 20px #00ccff;
+}
+.fa-clock {
+  color: #ff44cc;
+  text-shadow:
+    0 0 15px #ff44cc,
+    0 0 40px #00ccff;
+}
